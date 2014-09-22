@@ -38,11 +38,13 @@ public class BirdReader{
 				}
 			}
 		}
+		
+		
 	}
 	
 	public ArrayList<Bird> getBirdArray(){
 		return list;
-	}	
+	}		
 	
 }	
 

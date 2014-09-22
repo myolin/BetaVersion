@@ -17,6 +17,8 @@ public class Bird {
 		return url;
 	}
 	
-	
+	public String toString(){
+		return name + " " + url;  
+	}
 
 }

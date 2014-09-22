@@ -7,6 +7,7 @@ public class Question {
 	private ArrayList<String> incorrectBirdNames = new ArrayList<String>();
 	
 	private Random rand = new Random();
+	
 		
 	public Question(ArrayList<Bird> birdArray, int numChoices)
 	{
@@ -17,7 +18,7 @@ public class Question {
 		while (incorrectBirdNames.size() < numChoices - 1)
 		{
 			int newIndex = rand.nextInt(birdArray.size());
-			String possibleBirdName = birdArray.get(newIndex ).getName();
+			String possibleBirdName = birdArray.get(newIndex).getName();
 			if (!possibleBirdName.equals(correctBirdName) && !incorrectBirdNames.contains(possibleBirdName))
 			{
 				incorrectBirdNames.add(possibleBirdName);
@@ -25,7 +26,7 @@ public class Question {
 		}
 	}
 	
-	public void printQuestion()
+	/*public void printQuestion()
 	{
 		System.out.print("Question correct="+correctBirdName + " incorrect={");
 	
@@ -35,7 +36,7 @@ public class Question {
 		}
 		System.out.println("}");
 
-	}
+	}*/
 	
 	public String getCorrectBirdName(){
 		return correctBirdName;
@@ -48,6 +49,7 @@ public class Question {
 	public String getCorrectBirdUrl(){
 		return correctBirdUrl;
 	}
+	
 	
 		
 	// this is just for testing the Question class.  (Not production code)
