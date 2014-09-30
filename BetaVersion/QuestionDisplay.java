@@ -30,7 +30,7 @@ public class QuestionDisplay extends JPanel implements ActionListener {
 		}
 		 catch (IOException ex) 
 		{
-			 ex.printStackTrace();
+			ex.printStackTrace();
 			System.err.println("Sorry, we couldn't load your image file.");			
 		}	
 		

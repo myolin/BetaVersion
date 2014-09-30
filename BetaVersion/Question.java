@@ -5,6 +5,7 @@ public class Question {
 	private String correctBirdName;
 	private String correctBirdUrl;
 	private ArrayList<String> incorrectBirdNames = new ArrayList<String>();
+	private ArrayList<String> incorrectBirdUrls = new ArrayList<String>();
 	
 	private Random rand = new Random();
 	
@@ -22,6 +23,14 @@ public class Question {
 			if (!possibleBirdName.equals(correctBirdName) && !incorrectBirdNames.contains(possibleBirdName))
 			{
 				incorrectBirdNames.add(possibleBirdName);
+			}
+		}
+		
+		while(incorrectBirdUrls.size() < numChoices - 1){
+			int newIndex = rand.nextInt(birdArray.size());
+			String possibleBirdUrl = birdArray.get(newIndex).getURL();
+			if(!possibleBirdUrl.equals(correctBirdUrl) && !incorrectBirdUrls.contains(possibleBirdUrl)){
+				incorrectBirdUrls.add(possibleBirdUrl);
 			}
 		}
 	}
@@ -44,6 +53,10 @@ public class Question {
 	
 	public ArrayList<String> getInocrrectBirdNames(){
 		return incorrectBirdNames;
+	}
+	
+	public ArrayList<String> getIncorrectBirdUrls(){
+		return incorrectBirdUrls;
 	}
 	
 	public String getCorrectBirdUrl(){

@@ -20,8 +20,7 @@ public class Main {
 	private JFrame frame;
 	private CardLayout cardLayout = new CardLayout();
 	private ButtonListener listener = new ButtonListener();
-	QuestionDisplay d = new QuestionDisplay();
-	
+		
 	public Main(){
 		frame = new JFrame();
 		frame.setLayout(cardLayout);
@@ -30,17 +29,12 @@ public class Main {
 		
 		init();
 		frame.pack();
-		
+		System.out.println("hehe");
 		frame.setVisible(true);
 	}
 	
 	public void init(){
-		
-		ArrayList<QuestionDisplay> questionList = new ArrayList<QuestionDisplay>();
-		ArrayList<String> birdNames = new ArrayList<String>();
-		
-		
-		
+							
 		//panel1
 		panel1 = new QuestionDisplay();
 		next1 = new JButton("Go to Question 2");
@@ -103,9 +97,11 @@ public class Main {
 	}	
 	
 	public static void main(String[] args){
+		
 		EventQueue.invokeLater(new Runnable(){
 			public void run(){
-				Main gui = new Main();				
+				Main gui = new Main();		
+				
 		}
 			
 		});
