@@ -10,8 +10,7 @@ import java.util.*;
 
 public class QuestionDisplay extends JPanel implements ActionListener {
 
-	private BirdReader reader = new BirdReader();
-	private ArrayList<Bird> birdArray = reader.getBirdArray();	
+	
 	private ArrayList<JRadioButton> radioList;
 	private Random rand = new Random();
 	private Question question;
@@ -19,7 +18,7 @@ public class QuestionDisplay extends JPanel implements ActionListener {
 	private JButton testButton;
 	private JButton exitButton;
 	
-	public QuestionDisplay(){		
+	public QuestionDisplay(ArrayList<Bird> birdArray){		
 		question = new Question(birdArray, 3);
 		
 		this.setLayout(new BorderLayout());
