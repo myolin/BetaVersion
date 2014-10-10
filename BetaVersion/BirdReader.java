@@ -7,16 +7,13 @@ import java.util.*;
 
 public class BirdReader{
 	
-	private String filename = "resources/starter_birdlist2.csv";
+	private final String filename = "resources/starter_birdlist2.csv";
 	private ArrayList<Bird> list;
-	private BufferedReader br = null;
-	private String line = "";
-	
-	Random rand = new Random();
-	int index = rand.nextInt(5);
-		
+			
 	public BirdReader(){		
 		list = new ArrayList<Bird>();
+		BufferedReader br = null;
+		String line = "";
 		try{			
 			br = new BufferedReader(new FileReader(filename));
 			while((line = br.readLine())!=null){

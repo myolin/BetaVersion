@@ -17,10 +17,11 @@ public class QuestionDisplay extends JPanel implements ActionListener {
 	private JRadioButton choice1;
 	private JButton testButton;
 	private JButton exitButton;
-	
+	private int score = 0;
+		
 	public QuestionDisplay(ArrayList<Bird> birdArray){		
 		question = new Question(birdArray, 3);
-		
+			
 		this.setLayout(new BorderLayout());
 		try {
 			BufferedImage myImage = ImageIO.read(new File("resources/imagesources/thumb_" + question.getCorrectBirdUrl()));
@@ -92,14 +93,25 @@ public class QuestionDisplay extends JPanel implements ActionListener {
 		}	
 		else if (source == testButton) {
 			if (choice1.isSelected()) {
-				JOptionPane.showMessageDialog(this, "Correct");				
+				JOptionPane.showMessageDialog(this, "Correct");	
+				for(JRadioButton btn: radioList){
+					btn.setEnabled(false);
+				}				
 			}else{
 				JOptionPane.showMessageDialog(this, "Incorrect");
+				for(JRadioButton btn: radioList){
+					btn.setEnabled(false);
+				}
 			}
 		}
 		
 	}
 	
+	public int getScore(){
+		return score;
+	}
+	
+		
 	
 	
 	
