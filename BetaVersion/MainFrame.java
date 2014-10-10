@@ -16,6 +16,7 @@ public class MainFrame extends JFrame{
 	private ArrayList<Bird> birdArray;	
 	private JPanel cardPanel;
 	private JLabel scoreLabel;
+	private ArrayList<Bird> birdUsed;
 	
 				
 	public MainFrame(){
@@ -36,8 +37,14 @@ public class MainFrame extends JFrame{
 	
 	private void init(){
 		birdArray = reader.getBirdArray();
+		birdUsed = new ArrayList<Bird>();
 		for(int i=0; i<numOfQuestions; i++){
-			QuestionDisplay temp = new QuestionDisplay(birdArray);			
+			QuestionDisplay temp = new QuestionDisplay(birdArray);	
+			if (birdUsed.contains(temp.getBird())) {
+				while (birdUsed.contains(temp.getBird())) {
+					temp = new QuestionDisplay(birdArray);
+				}
+			}
 			panelArray.add(temp);
 			JButton nextButton = new JButton("Go to Question " + (i+2));
 			nextButtons.add(nextButton);
@@ -45,6 +52,8 @@ public class MainFrame extends JFrame{
 			temp.add(nextButton, BorderLayout.NORTH);			
 			scoreLabel = new JLabel("Your score:");
 			this.add(scoreLabel, BorderLayout.NORTH);
+			birdUsed.add(temp.getBird());
+			
 		}
 		
 		

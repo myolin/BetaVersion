@@ -13,6 +13,7 @@ public class MainFrame2 extends JFrame implements ActionListener {
 	private ArrayList<JPanel> panelArray = new ArrayList<JPanel>();
 	private ArrayList<JButton> nextButtons = new ArrayList<JButton>();	
 	private JLabel scoreLabel;
+	private ArrayList<Bird> birdUsed; 
 	
 	public MainFrame2(){
 		
@@ -32,8 +33,12 @@ public class MainFrame2 extends JFrame implements ActionListener {
 	}
 	
 	private void init(){
+		birdUsed = new ArrayList<Bird>();
 		for(int i=0; i<numOfQuestions; i++){
-			QuestionDisplay2 temp = new QuestionDisplay2();
+			QuestionDisplay2 temp = new QuestionDisplay2();			
+						
+			birdUsed.add(temp.getBird());
+			
 			panelArray.add(temp);
 			JButton nextButton = new JButton("Go to Question " + (i+2));
 			nextButton.addActionListener(this);
@@ -45,7 +50,9 @@ public class MainFrame2 extends JFrame implements ActionListener {
 						
 			for(int i=0; i<panelArray.size(); i++){
 				mainPanel.add(panelArray.get(i));
-			}		
+			}	
+			
+			
 	}
 			
 	public void actionPerformed(ActionEvent e){
@@ -56,7 +63,11 @@ public class MainFrame2 extends JFrame implements ActionListener {
 			}
 		
 		}
+		
+		
 	}
+	
+	
 	
 	public static void main(String[] args){
 		EventQueue.invokeLater(new Runnable(){

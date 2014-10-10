@@ -73,6 +73,10 @@ public class QuestionDisplay extends JPanel implements ActionListener {
 		return radioList;
 	}
 	
+	public Bird getBird() {
+		return question.getCorrectBird();
+	}
+	
 	public String correctBird(){
 		return question.getCorrectBirdName();
 	}

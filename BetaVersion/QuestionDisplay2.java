@@ -16,6 +16,7 @@ public class QuestionDisplay2 extends JPanel implements ActionListener {
 	private ArrayList<BufferedImage> birdImages = new ArrayList<BufferedImage>();	
 	private ArrayList<JButton> imageButtons = new ArrayList<JButton>();
 	private JButton b1, b2, b3, b4, b5, b6;
+	private int score = 0;
 	
 		
 	public QuestionDisplay2(){
@@ -79,6 +80,7 @@ public class QuestionDisplay2 extends JPanel implements ActionListener {
 			for(JButton btn: imageButtons){
 				btn.setEnabled(false);
 			}		
+			score+=1;
 		}else{
 			JOptionPane.showMessageDialog(null, "InCorrect");
 			for(JButton btn: imageButtons){
@@ -86,6 +88,10 @@ public class QuestionDisplay2 extends JPanel implements ActionListener {
 			}
 		}
 		
+	}
+	
+	public Bird getBird() {
+		return question.getCorrectBird();
 	}
 	
 	
