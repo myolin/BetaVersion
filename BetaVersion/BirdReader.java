@@ -7,8 +7,9 @@ import java.util.*;
 
 public class BirdReader{
 	
-	private final String filename = "resources/starter_birdlist2.csv";
+	private final String filename = "resources/full_birdlist.csv";
 	private ArrayList<Bird> list;
+	String[] bird;
 			
 	public BirdReader(){		
 		list = new ArrayList<Bird>();
@@ -17,9 +18,9 @@ public class BirdReader{
 		try{			
 			br = new BufferedReader(new FileReader(filename));
 			while((line = br.readLine())!=null){
-				String[] bird = line.split(",");
-				for(int i=0; i<bird.length; i=i+2){
-					list.add(new Bird(bird[i],bird[i+1]));
+				bird = line.replaceAll("^\"", "").split("\"?(,|$)(?=(([^\"]*\"){2})*[^\"]*$) *\"?");
+				for(int i=0; i<bird.length; i=i+6){
+					list.add(new Bird(bird[i], bird[i+1], bird[i+2], bird[i+3], bird[i+4], bird[i+5]));
 				}
 			}		
 		}catch(FileNotFoundException e){
@@ -43,6 +44,17 @@ public class BirdReader{
 		return list;
 	}		
 	
+	public String[] getBird(){
+		return bird;
+	}
+	
+	public static void main(String[] args){
+		BirdReader reader = new BirdReader();
+		String[] bird = reader.getBird();
+		for(String s: bird){
+			System.out.println(s);
+		}
+	}
 }	
 
 	

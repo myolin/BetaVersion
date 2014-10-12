@@ -24,7 +24,7 @@ public class QuestionDisplay extends JPanel implements ActionListener {
 			
 		this.setLayout(new BorderLayout());
 		try {
-			BufferedImage myImage = ImageIO.read(new File("resources/imagesources/thumb_" + question.getCorrectBirdUrl()));
+			BufferedImage myImage = ImageIO.read(new File("resources/photos/thumb_" + question.getCorrectBirdUrl()));
 	        JLabel picLabel = new JLabel(new ImageIcon(myImage));
 	        this.add(picLabel, BorderLayout.CENTER);
 		}
@@ -88,6 +88,15 @@ public class QuestionDisplay extends JPanel implements ActionListener {
 	public int index(){
 		return radioList.indexOf(choice1);
 	}
+	
+	private JPanel getInformationPanel(){
+		JPanel informationPanel = new JPanel(new GridLayout(0,1,5,5));
+		JLabel correctBird = new JLabel("Corred Bird: " + correctBird());
+		JLabel correctUrl = new JLabel("Correct url: " + correctBirdURL());
+		informationPanel.add(correctBird);
+		informationPanel.add(correctUrl);
+		return informationPanel;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -102,7 +111,7 @@ public class QuestionDisplay extends JPanel implements ActionListener {
 					btn.setEnabled(false);
 				}				
 			}else{
-				JOptionPane.showMessageDialog(this, "Incorrect");
+				JOptionPane.showMessageDialog(this, getInformationPanel(), "Correct Answer", JOptionPane.INFORMATION_MESSAGE);
 				for(JRadioButton btn: radioList){
 					btn.setEnabled(false);
 				}

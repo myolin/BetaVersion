@@ -18,7 +18,7 @@ import javax.swing.*;
  */
 @SuppressWarnings("serial")
 public class TourFrame extends JFrame implements ActionListener {
-	private static final int NUM_BIRDS_IN_TOUR = 3;
+	private static final int NUM_BIRDS_IN_TOUR = 30;
 	ArrayList<Bird> tourBirdList;
 
 	private JButton nextButton;
@@ -39,6 +39,7 @@ public class TourFrame extends JFrame implements ActionListener {
 
 		reader = new BirdReader();
 		ArrayList<Bird> allBirdList = reader.getBirdArray();
+		allBirdList.remove(0);
 		Collections.shuffle(allBirdList);
 
 		// copy some birds into the tour bird list
@@ -89,7 +90,7 @@ public class TourFrame extends JFrame implements ActionListener {
 			}
 
 			BufferedImage myImage = ImageIO.read(new File(
-					"resources/imagesources/thumb_" + currentBirdURL));
+					"resources/photos/thumb_" + currentBirdURL));
 			picLabel = new JLabel(new ImageIcon(myImage));
 
 			this.add(picLabel, BorderLayout.CENTER);

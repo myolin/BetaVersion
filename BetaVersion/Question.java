@@ -4,6 +4,7 @@ public class Question {
 	
 	private String correctBirdName;
 	private String correctBirdUrl;
+	private Bird correctBird;
 	private ArrayList<String> incorrectBirdNames = new ArrayList<String>();
 	private ArrayList<String> incorrectBirdUrls = new ArrayList<String>();
 	
@@ -12,7 +13,8 @@ public class Question {
 		
 	public Question(ArrayList<Bird> birdArray, int numChoices)
 	{
-		int index = rand.nextInt(birdArray.size());
+		int index = rand.nextInt(birdArray.size())+1;
+		correctBird = birdArray.get(index);
 		correctBirdName = birdArray.get(index).getName();
 		correctBirdUrl = birdArray.get(index).getURL();
 		
@@ -61,6 +63,10 @@ public class Question {
 	
 	public String getCorrectBirdUrl(){
 		return correctBirdUrl;
+	}
+	
+	public Bird getCorrectBird(){
+		return correctBird;
 	}
 	
 	

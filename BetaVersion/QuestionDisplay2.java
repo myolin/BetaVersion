@@ -34,9 +34,9 @@ public class QuestionDisplay2 extends JPanel implements ActionListener {
 		this.add(questionLabel, BorderLayout.NORTH);
 					
 		try {
-			birdImages.add(ImageIO.read(new File("resources/imagesources/thumb_" + question.getCorrectBirdUrl())));
+			birdImages.add(ImageIO.read(new File("resources/photos/thumb_" + question.getCorrectBirdUrl())));
 			for(int i=0; i<incorrectBirdUrlArray.size(); i++){
-				birdImages.add(ImageIO.read(new File("resources/imagesources/thumb_" + incorrectBirdUrlArray.get(i))));
+				birdImages.add(ImageIO.read(new File("resources/photos/thumb_" + incorrectBirdUrlArray.get(i))));
 			}				    
 		} catch (IOException e) {
 			e.printStackTrace();
